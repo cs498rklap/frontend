@@ -1,4 +1,4 @@
-# Starter files for MP4
+# Frontend for LAP
 
 ## Setup
 Clone the following repository and `cd` into the directory
