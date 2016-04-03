@@ -10,3 +10,5 @@ grunt compass
 grunt uglify
 grunt
 ```
+
+Code taken from CS 498RK starter for mp4-client
