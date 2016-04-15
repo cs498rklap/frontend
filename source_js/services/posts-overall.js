@@ -1,0 +1,1 @@
+var postsServices = angular.module('posts.services', []);

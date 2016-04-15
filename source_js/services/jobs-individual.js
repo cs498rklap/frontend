@@ -1,0 +1,1 @@
+var jobServices = angular.module('job.services', []);

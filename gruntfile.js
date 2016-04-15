@@ -15,8 +15,18 @@ module.exports = function(grunt) {
         files: {
           'public/js/script.js': ['source_js/script.js'],
           'public/js/app.js': ['source_js/app.js'],
-          'public/js/controllers.js': ['source_js/controllers.js'],
-          'public/js/services.js': ['source_js/services.js'],
+          'public/js/controllers.js': [
+              'source_js/controllers/posts-individual.js',
+              'source_js/controllers/posts-overall.js',
+              'source_js/controllers/jobs-individual.js',
+              'source_js/controllers/jobs-overall.js'
+          ],
+          'public/js/services.js': [
+              'source_js/services/jobs-individual.js',
+              'source_js/services/jobs-overall.js',
+              'source_js/services/posts-individual.js',
+              'source_js/services/posts-overall.js'
+          ],
         } //files
       } //my_target
     }, //uglify

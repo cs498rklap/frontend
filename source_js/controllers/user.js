@@ -1,0 +1,1 @@
+var userControllers = angular.module('user.controllers', []);

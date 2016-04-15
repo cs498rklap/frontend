@@ -1,0 +1,1 @@
+var postsControllers = angular.module('posts.controllers', []);
