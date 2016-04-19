@@ -79,7 +79,7 @@ module.exports = function(grunt) {
         tasks: ['compass:dev', 'compass:foundation']
       }, //sass_foundation
       html: {
-        files: ['public/*.html']
+        files: ['public/*/*.html']
       }
     }, //watch
     express: {

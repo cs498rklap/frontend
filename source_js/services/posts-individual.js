@@ -1,6 +1,6 @@
 var postServices = angular.module('post.services', []);
 
-postService.factory('PostIndividual', function($http) {
+postServices.factory('PostIndividual', function($http) {
     return {
         get: function(id) {
             var baseUrl = 'http://localhost:4000';

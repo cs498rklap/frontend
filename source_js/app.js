@@ -19,4 +19,11 @@ var app = angular.module('lap', [
 
 app.config(['$routeProvider', function($routeProvider) {
     $routeProvider.
+        when('/posts/:id', {
+            templateUrl: 'partials/post/details.html',
+            controller: 'PostIndividualController'
+        }).
+        otherwise({
+            redirectTo: '/'
+        });
 }]);
