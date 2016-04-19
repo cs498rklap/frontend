@@ -19,13 +19,15 @@ module.exports = function(grunt) {
               'source_js/controllers/posts-individual.js',
               'source_js/controllers/posts-overall.js',
               'source_js/controllers/jobs-individual.js',
-              'source_js/controllers/jobs-overall.js'
+              'source_js/controllers/jobs-overall.js',
+              'source_js/controllers/user.js'
           ],
           'public/js/services.js': [
               'source_js/services/jobs-individual.js',
               'source_js/services/jobs-overall.js',
               'source_js/services/posts-individual.js',
-              'source_js/services/posts-overall.js'
+              'source_js/services/posts-overall.js',
+              'source_js/services/user.js'
           ],
         } //files
       } //my_target
@@ -56,7 +58,7 @@ module.exports = function(grunt) {
     watch: {
       options: { livereload: true },
       scripts: {
-        files: ['source_js/*.js'],
+        files: ['source_js/*/*.js'],
         tasks: ['clean','uglify'],
         //tasks: ['copy']
       }, //script
