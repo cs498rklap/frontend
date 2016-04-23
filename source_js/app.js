@@ -23,6 +23,10 @@ app.config(['$routeProvider', function($routeProvider) {
             templateUrl: 'partials/post/details.html',
             controller: 'PostIndividualController'
         }).
+        when('/edit-post/:id', {
+            templateUrl: 'partials/post/edit.html',
+            controller: 'PostIndividualController'
+        }).
         otherwise({
             redirectTo: '/'
         });

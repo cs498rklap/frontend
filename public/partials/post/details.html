@@ -1,11 +1,16 @@
-<div ng-controller="PostIndividualController" ng-init="initialize()">
+<div ng-init="initialize()">
     <h1 class="text-center">{{post.title}}</h1>
     <div class="row">
         <div class="columns small-12 medium-4">
             <p>By: {{post.author}}</p>
         </div>
         <div class="columns small-12 medium-4">
+            <span ng-repeat="tag in post.tags" class="info label">{{tag}}</span><br/>
+        </div>
+        <div class="columns small-12 medium-4">
             <p>{{post.timestamp | date: 'MMMM d, yyyy'}}</p>
+            <!-- TODO: only display if the user name is the same as the logged user name -->
+            <a href="#/edit-post/{{post._id}}"><button class="button success">Edit</button></a>
         </div>
     </div>
     <div class="row">
@@ -33,7 +38,7 @@
         <div class="row">
             <div class="columns small-12">
                 <!-- TODO: remove the inline styling once the css is figured out -->
-                <label>Leave a comment <span class="alert" style="color: red;">*</span>
+                <label>Leave a comment
                     <textarea placeholder="Comment text" ng-model="newComment" rows="3"></textarea>
                 </label>
                 <input type="submit" class="button" value="Submit"></button>
