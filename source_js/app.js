@@ -19,4 +19,15 @@ var app = angular.module('lap', [
 
 app.config(['$routeProvider', function($routeProvider) {
     $routeProvider.
+    when('/posts', {
+        templateUrl: 'partials/post/list.html',
+        controller: 'PostsController'
+    }).
+    when('/addpost', {
+        templateUrl: 'partials/post/add.html',
+        controller: 'AddPostController'
+    }).
+    otherwise({
+        redirectTo: '/posts'
+    });
 }]);
