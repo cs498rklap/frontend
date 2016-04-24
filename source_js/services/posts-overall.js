@@ -10,7 +10,7 @@ postsServices.factory('Posts', function($http) {
 	        return $http.get('http://localhost:4000/api/posts/'+postId);
 	    },
 	    post : function (newTitle, newAuthor, newContent, newTags) {
-	        return $http.post('http://localhost:4000/api/posts/', {title: newTitle, author: newAuthor, content: newContent, tags: newTags});
+	        return $http.post('http://localhost:4000/api/posts/', {"title": newTitle, "author": newAuthor, "content": newContent, "tags": newTags});
 	    }
 	}
 });

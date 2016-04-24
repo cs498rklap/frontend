@@ -1,5 +1,6 @@
 var postsControllers = angular.module('posts.controllers', []);
 
+/* List Posts Controller ---------------------------------------------------------------------------------- */
 postsControllers.controller('PostsController', ['$scope', 'Posts', function($scope, Posts) {
 	/* Variables used in this controller: */
 	// Data:
@@ -57,11 +58,21 @@ postsControllers.controller('PostsController', ['$scope', 'Posts', function($sco
 					$scope.updatePagesList(1, $scope.numPages);
 				}
 	        }).error(function(data) { // Error getting the results for this page
-	        	$scope.errorMessage = data["message"];
+	        	if(typeof data == undefined || data == null) {
+	        		$scope.errorMessage = "Unable to connect to the API and retrieve the list of posts.";
+	        	}
+	        	else {
+	        		$scope.errorMessage = data["message"];
+	        	}
         		$scope.showGetPostsError = true;
 	        });
      	}).error(function(data) { // Error counting the number of results
-     		$scope.errorMessage = data["message"];
+        	if(typeof data == undefined || data == null) {
+        		$scope.errorMessage = "Unable to connect to the API and retrieve the list of posts.";
+        	}
+        	else {
+        		$scope.errorMessage = data["message"];
+        	}
         	$scope.showGetPostsError = true;
      	});
 
@@ -136,4 +147,72 @@ postsControllers.controller('PostsController', ['$scope', 'Posts', function($sco
 
 	/* Code to run automatically on page load: */
 	$scope.loadPosts();
+}]);
+
+/* Add  Post  Controller ---------------------------------------------------------------------------------- */
+postsControllers.controller('AddPostController', ['$scope', 'Posts', function($scope, Posts) {
+	/* Variables Used in This Controller */
+	// Data:
+	$scope.newTitle = "";
+	$scope.newAuthor = "";
+	$scope.newContent = "";
+	$scope.newTags = "";
+	// Errors:
+	$scope.showTitleError = false;
+	$scope.showAuthorError = false;
+	$scope.showContentError = false;
+	$scope.showResultError = false;
+	$scope.showResultSuccess = false;
+	$scope.error = false;
+	$scope.prevPostName = "";
+	$scope.resultErrorMessage = "";
+
+	/* Functions Used in This Controller */
+	$scope.addPost = function() {
+		// Reset status messages
+		$scope.showTitleError = false;
+		$scope.showAuthorError = false;
+		$scope.showContentError = false;
+		$scope.showResultError = false;
+		$scope.showResultSuccess = false;
+		$scope.error = false;
+
+		// Force required fields be filled before submitting request
+		if($scope.newTitle == undefined || $scope.newTitle == "") {
+			$scope.showTitleError = true;
+			$scope.error = true;
+		}
+		if($scope.newAuthor == undefined || $scope.newAuthor == "") {
+			$scope.showAuthorError = true;
+			$scope.error = true;
+		}
+		if($scope.newContent == undefined || $scope.newContent == "") {
+			$scope.showContentError = true;
+			$scope.error = true;
+		}
+		if($scope.error) {
+			return;
+		}
+
+		// Format tags to send to the API
+		var newTagsArray = [];
+		if($scope.newTags != undefined && $scope.newTags != "") {
+			newTagsArray = $scope.newTags.split(',');
+		}
+
+		// Send the new post data to the API
+		// newTitle, newAuthor, newContent, newTags
+		Posts.post($scope.newTitle, $scope.newAuthor, $scope.newContent, newTagsArray).success(function(data) {
+			$scope.showResultSuccess = true;
+			$scope.prevPostName = $scope.newTitle;
+		}).error(function(data) {
+			if(data == undefined || data == null) {
+				$scope.resultErrorMessage = "Error connecting to the API.  Unable to add the new post.";
+			}
+			else {
+				$scope.resultErrorMessage = data["message"];
+			}
+			$scope.showResultError = true;
+		});
+	};
 }]);

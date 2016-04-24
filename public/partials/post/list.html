@@ -44,39 +44,20 @@
                 </li>
             </div>
             <li>
-                <div class="row text-center">
+                <div class="row text-center" ng-hide="showGetPostsError">
                     <span ng-click="goToFirstPage()"><< </span><span ng-click="previousPage()"> < </span><span ng-repeat="page in pagesList" ng-class="{ 'page-selected': currentPage == page }" ng-click="goToPage(page)"> {{page}} </span><span ng-click="nextPage()"> > </span><span ng-click="goToLastPage()"> >></span>
                 </div>
+            </li>
+            <li class="first-list-item" ng-show="showGetPostsError">
+                <div class="row text-center message">
+                    <span class="alert label"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>  {{errorMessage}}</span>    
+                </div>
+            </li>
+            <li class="first-list-item" ng-show="showNoPostsWarning">
+                <div class="row text-center message">
+                    <span class="warning label no-pads"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>  {{warningMessage}}</span>
+                 </div>
             </li>
         </ul>
     </form>
 </div>
-
-<!-- <li> -->
-<!-- <div class="row">
-  <div class="small-2 columns">
-    <button class="secondary hollow button" ng-click="previousPage()">Previous</button>
-  </div>
-  <div class="small-8 columns text-center">
-    <h5>Page:  {{currPage}} of {{numPages}}</h5>
-  </div>
-  <div class="small-2-columns">
-    <button class="success hollow button" ng-click="nextPage()">Next</button>
-  </div>
-</div>
-</li>
-<li class="first-list-item" ng-show="showGetTasksError">
-<div class="row text-center message">
-      <span class="alert label"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>  {{errorMessage}}</span>
-  </div>
-</li>
-<li class="first-list-item" ng-show="showDeleteTaskError">
-<div class="row text-center message">
-      <span class="alert label"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>  {{deleteErrorMessage}}</span>
-  </div>
-</li>
-<li class="first-list-item" ng-show="showNoTasksWarning">
-<div class="row text-center message">
-      <span class="warning label no-pads"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>  {{warningMessage}}</span>
-  </div>
-</li> -->
