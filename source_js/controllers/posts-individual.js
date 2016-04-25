@@ -3,11 +3,14 @@ var postControllers = angular.module('post.controllers', []);
 postControllers.controller('PostIndividualController', ['$scope', '$routeParams', '$location', 'PostIndividual', function($scope, $routeParams, $location, PostIndividual) {
     $scope.newComment = '';
     $scope.edit = [];
+    $scope.commentError = [];
     $scope.addedTag = '';
+    $scope.contents = [];
 
     $scope.getPost = function(id) {
         PostIndividual.get(id).then(function(response) {
             $scope.post = response.data.data;
+            $scope.contents = $scope.post.content.split('\n');
             $scope.setEditArray();
         }, function(error) {
             $scope.error = error.data.message;
@@ -53,16 +56,16 @@ postControllers.controller('PostIndividualController', ['$scope', '$routeParams'
 
     $scope.updateComment = function(comment, index) {
         if (comment.text.length === 0) {
-            $scope.error = 'Please enter comment text you wish to update.';
+            $scope.commentError[index] = 'Please enter comment text you wish to update for this comment.';
         } else {
             var params = {
                 'cid': comment._id,
                 'ctext': comment.text
             };
             PostIndividual.update($scope.post._id, params).then(function(response) {
-                $scope.error = '';
                 $scope.post.comments = response.data.data.comments;
                 $scope.edit[index] = false;
+                $scope.commentError[index] = '';
             }, function(error) {
                 $scope.error = error.message;
             });
@@ -71,6 +74,7 @@ postControllers.controller('PostIndividualController', ['$scope', '$routeParams'
 
     $scope.setEditArray = function() {
         $scope.edit = Array.apply(null, Array($scope.post.comments.length)).map(function() { return false; });
+        $scope.commentError = Array.apply(null, Array($scope.post.comments.length)).map(function() { return ''; });
     };
 
     $scope.addTag = function() {
