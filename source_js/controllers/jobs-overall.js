@@ -44,28 +44,38 @@ jobsControllers.controller('JobListController', ['$scope', 'Jobs', function($sco
     $scope.nextPage = function () {
         if (Math.ceil($scope.count / jobsPerPage) > $scope.page) {
             $scope.page = $scope.page + 1;
+            $scope.refresh();
         }
     };
 
     $scope.prevPage = function () {
         if ($scope.page > 1) {
             $scope.page = $scope.page - 1;
+            $scope.refresh();
         }
     };
 
     $scope.firstPage = function () {
-        $scope.page = 1;
+        if($scope.page != 1) {
+            $scope.page = 1;
+            $scope.refresh();
+        }
     };
 
     $scope.lastPage = function () {
-        $scope.page = Math.ceil($scope.count / jobsPerPage);
+        if ($scope.page != Math.ceil($scope.count / jobsPerPage)) {
+            $scope.page = Math.ceil($scope.count / jobsPerPage);
+            $scope.refresh();
+        }
     };
 
     $scope.setPage = function (number) {
         if (number > 0 && number <= Math.ceil($scope.count / jobsPerPage)) {
-            $scope.page = Math.ceil(number);
+            if ($scope.page != Math.ceil(number)) {
+                $scope.page = Math.ceil(number);
+                $scope.refresh();
+            }
         }
-
     };
 
     $scope.refresh();
@@ -137,6 +147,7 @@ jobsControllers.controller('JobAddController', ['$scope', 'Jobs', function($scop
         if($scope.requiredFieldError) {
             $scope.postError=true;
             $scope.postErrorMessage="Required field missing."
+            $scope.posting=false;
             return;
         }
 

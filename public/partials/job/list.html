@@ -8,13 +8,13 @@
 <div class="row clearfix">
     <span class="float-left">
         <ul class="pagination">
-            <li ng-class="page<=1 ? 'arrow unavailable' : 'arrow'" ng-click="firstPage();refresh()">&laquo</li>
-            <li ng-class="page<=1 ? 'arrow unavailable' : 'arrow'" ng-click="prevPage();refresh()"><</li>
+            <li ng-class="page<=1 ? 'arrow unavailable' : 'arrow'" ng-click="firstPage();">&laquo</li>
+            <li ng-class="page<=1 ? 'arrow unavailable' : 'arrow'" ng-click="prevPage();"><</li>
 
-            <li ng-repeat="num in getPages()" ng-class="page==num ? 'current' : ''" ng-click="setPage(num);refresh()">{{num}}</li>
+            <li ng-repeat="num in getPages()" ng-class="page==num ? 'current' : ''" ng-click="setPage(num);">{{num}}</li>
 
-            <li ng-class="page>=maxPage() ? 'arrow unavailable' : 'arrow'" ng-click="nextPage();refresh()">></li>
-            <li ng-class="page>=maxPage() ? 'arrow unavailable' : 'arrow'" ng-click="lastPage();refresh()">&raquo</li>
+            <li ng-class="page>=maxPage() ? 'arrow unavailable' : 'arrow'" ng-click="nextPage();">></li>
+            <li ng-class="page>=maxPage() ? 'arrow unavailable' : 'arrow'" ng-click="lastPage();">&raquo</li>
         </ul>
     </span>
     <span class="new-post float-right">
@@ -36,13 +36,13 @@
 <div class="row clearfix">
     <span class="float-left">
         <ul class="pagination">
-            <li ng-class="page<=1 ? 'arrow unavailable' : 'arrow'" ng-click="firstPage();refresh()">&laquo</li>
-            <li ng-class="page<=1 ? 'arrow unavailable' : 'arrow'" ng-click="prevPage();refresh()"><</li>
+            <li ng-class="page<=1 ? 'arrow unavailable' : 'arrow'" ng-click="firstPage();">&laquo</li>
+            <li ng-class="page<=1 ? 'arrow unavailable' : 'arrow'" ng-click="prevPage();"><</li>
 
-            <li ng-repeat="num in getPages()" ng-class="page==num ? 'current' : ''" ng-click="setPage(num);refresh()">{{num}}</li>
+            <li ng-repeat="num in getPages()" ng-class="page==num ? 'current' : ''" ng-click="setPage(num);">{{num}}</li>
 
-            <li ng-class="page>=maxPage() ? 'arrow unavailable' : 'arrow'" ng-click="nextPage();refresh()">></li>
-            <li ng-class="page>=maxPage() ? 'arrow unavailable' : 'arrow'" ng-click="lastPage();refresh()">&raquo</li>
+            <li ng-class="page>=maxPage() ? 'arrow unavailable' : 'arrow'" ng-click="nextPage();">></li>
+            <li ng-class="page>=maxPage() ? 'arrow unavailable' : 'arrow'" ng-click="lastPage();">&raquo</li>
         </ul>
     </span>
     <span class="new-post float-right">
