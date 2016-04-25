@@ -29,6 +29,7 @@ postControllers.controller('PostIndividualController', ['$scope', '$routeParams'
             PostIndividual.update($scope.post._id, params).then(function(response) {
                 $scope.error = '';
                 $scope.post.comments = response.data.data.comments;
+                $scope.newComment = '';
             }, function(error) {
                 $scope.error = error.message;
             });
@@ -51,17 +52,21 @@ postControllers.controller('PostIndividualController', ['$scope', '$routeParams'
     };
 
     $scope.updateComment = function(comment, index) {
-        var params = {
-            'cid': comment._id,
-            'ctext': comment.text
-        };
-        PostIndividual.update($scope.post._id, params).then(function(response) {
-            $scope.error = '';
-            $scope.post.comments = response.data.data.comments;
-            $scope.edit[index] = false;
-        }, function(error) {
-            $scope.error = error.message;
-        });
+        if (comment.text.length === 0) {
+            $scope.error = 'Please enter comment text you wish to update.';
+        } else {
+            var params = {
+                'cid': comment._id,
+                'ctext': comment.text
+            };
+            PostIndividual.update($scope.post._id, params).then(function(response) {
+                $scope.error = '';
+                $scope.post.comments = response.data.data.comments;
+                $scope.edit[index] = false;
+            }, function(error) {
+                $scope.error = error.message;
+            });
+        }
     };
 
     $scope.setEditArray = function() {
@@ -81,17 +86,23 @@ postControllers.controller('PostIndividualController', ['$scope', '$routeParams'
     };
 
     $scope.updatePost = function() {
-        var params = {
-            title: $scope.post.title,
-            content: $scope.post.content,
-            tags: $scope.post.tags
-        };
-        PostIndividual.update($scope.post._id, params).then(function(response) {
-            $scope.error = '';
-            $location.path('/posts/' + $scope.post._id);
-        }, function(error) {
-            $scope.error = error.message;
-        });
+        if ($scope.post.title.length === 0) {
+            $scope.error = 'Please enter a valid title';
+        } else if ($scope.post.content.length === 0) {
+            $scope.error = 'Please enter some content.';
+        } else {
+            var params = {
+                title: $scope.post.title,
+                content: $scope.post.content,
+                tags: $scope.post.tags
+            };
+            PostIndividual.update($scope.post._id, params).then(function(response) {
+                $scope.error = '';
+                $location.path('/posts/' + $scope.post._id);
+            }, function(error) {
+                $scope.error = error.message;
+            });
+        }
     };
 
     $scope.initialize = function() {

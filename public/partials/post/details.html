@@ -26,9 +26,12 @@
     <div class="row">
         <div class="columns small-12" ng-repeat="comment in post.comments">
             <p ng-show="!edit[$index]">{{comment.text}} {{comment.timestamp | date: 'MMMM d, yyyy'}}</p>
+            <p ng-show="!edit[$index]">{{comment.username}}</p>
             <form ng-show="edit[$index]" ng-submit="updateComment(comment, $index)">
                 <textarea ng-model="comment.text"></textarea>
                 <input type="submit" class="button" value="Submit"></input>
+                <button type="button" class="button" ng-click="getPost(post._id)">Cancel</button>
+                <div class="callout alert" ng-show="error || error.length > 0">{{error}}</div>
             </form>
             <button class="button success" ng-show="!edit[$index]" ng-click="edit[$index] = true">Edit</button>
             <button class="button alert" ng-click="deleteComment(comment)">Delete</button>
