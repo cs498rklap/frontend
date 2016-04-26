@@ -1,4 +1,18 @@
 // Add any custom Sass & CSS here
+.top-bar {
+  font-weight: bold;
+  background:  $bright-green;
+
+}
+
+.menu-text, .menu-item, .drop-menu {
+  background: $bright-green;
+}
+
+.vert-menu1, .vert-menu2, .vert-menu3 {
+  background: white;
+}
+
 .job-content {
   background: $bright-green;
   border-style: solid;
