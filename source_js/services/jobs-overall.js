@@ -6,8 +6,9 @@ jobsServices.factory('Jobs', function($http, $q) {
             return $http.get('http://localhost:4000/api/jobs?'+queryString);
         },
         post : function(data) {
-            console.log(data);
-            return $http.post('http://localhost:4000/api/jobs', data);
+            return $http.post('http://localhost:4000/api/jobs', $.param(data), {
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            });
         },
         states : function() {
             return [
