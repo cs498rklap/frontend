@@ -11,7 +11,6 @@
             </label>
         </div>
     </div> 
-    New Title:  {{newTitle}}
     <div class="warning" ng-show="showTitleError">
       <div class="row">
         <div class="small-12 columns">
@@ -27,7 +26,6 @@
         </label>
       </div>
     </div>
-    New Author:  {{newAuthor}}
     <div class="warning" ng-show="showAuthorError">
       <div class="row">
         <div class="small-12 columns">
@@ -39,7 +37,7 @@
       <div class="small-12 columns">
         <label>
           <span ng-class="{'red': showContentError}"> Content: </span><span class="red">*</span>
-          <textarea ng-model="newContent" rows="8" cols="50"></textarea>
+          <textarea ng-model="newContent" rows="5" cols="50"></textarea>
         </label>
       </div>
     </div>
@@ -50,7 +48,6 @@
         </div>
       </div>
     </div>
-    New Content:  {{newContent}}
     <div class="row">
       <div class="small-12 columns">
         <label>
