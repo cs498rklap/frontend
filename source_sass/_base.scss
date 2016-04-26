@@ -1,3 +1,44 @@
+
+// Add any custom Sass & CSS here
+.top-bar {
+  font-weight: bold;
+  background:  $bright-green;
+
+}
+
+.menu-text, .menu-item, .drop-menu {
+  background: $bright-green;
+}
+
+.vert-menu1, .vert-menu2, .vert-menu3 {
+  background: white;
+}
+
+.job-content {
+  background: $bright-green;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.job-content h1{
+  background: $dark-purple;
+  color: white;
+  padding: 0px 20px;
+}
+
+.job-content p {
+  padding: 0px 20px;
+}
+
+.job-info {
+  padding: 0px 20px;
+  font-weight: bold;
+}
+
+#share, #apply {
+  background: $dark-purple;
+}
+
 /* Shared: ----------------------------------------------------------------------------------------- */
 body {
 	font-family: $font-primary;

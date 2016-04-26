@@ -19,6 +19,10 @@ var app = angular.module('lap', [
 
 app.config(['$routeProvider', function($routeProvider) {
     $routeProvider.
+      when('/jobs/:id', {
+        templateUrl: 'partials/job/details.html',
+        controller: 'JobsIndividualController'
+    }).
     when('/posts', {
         templateUrl: 'partials/post/list.html',
         controller: 'PostsController'
