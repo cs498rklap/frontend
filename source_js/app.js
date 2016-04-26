@@ -29,7 +29,19 @@ app.config(['$routeProvider', function($routeProvider) {
         templateUrl: 'partials/job/add.html',
         controller: 'JobAddController'
     }).
+    when('/jobs/:id', {
+        templateUrl: 'partials/job/details.html',
+        controller: 'JobsIndividualController'
+    }).
+    when('/posts', {
+        templateUrl: 'partials/post/list.html',
+        controller: 'PostsController'
+    }).
+    when('/addpost', {
+        templateUrl: 'partials/post/add.html',
+        controller: 'AddPostController'
+    }).
     otherwise({
-        redirectTo: '/jobs'
+        redirectTo: '/posts'
     });
 }]);
