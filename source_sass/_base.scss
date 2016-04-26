@@ -1,1 +1,61 @@
-// Add any custom Sass & CSS here
+/* Shared: ----------------------------------------------------------------------------------------- */
+body {
+	font-family: $font-primary;
+	font-size: $font-primary-size;
+}
+
+.h {
+	font-family: $font-h;
+	color: $dark-green;
+}
+h1 {
+	@extend .h;
+	font-size: $font-h1-size;
+}
+h2 {
+	@extend .h;
+	font-size: $font-h2-size;
+}
+h3 {
+	@extend .h;
+	font-size: $font-h3-size;
+}
+h4 {
+	@extend .h;
+	font-size: $font-h4-size;
+}
+h5 {
+	@extend .h;
+	font-size: $font-h5-size;
+}
+h6 {
+	@extend .h;
+	font-size: $font-h6-size;
+}
+
+/* Ai: --------------------------------------------------------------------------------------------- */
+
+/* Emily: ------------------------------------------------------------------------------------------ */
+
+/* Matt: ------------------------------------------------------------------------------------------- */
+
+/* William: ---------------------------------------------------------------------------------------- */
+.page-selected {
+	color: $dark-purple;
+}
+
+.posts-grid-item {
+	padding-bottom: 20px;
+}
+
+.posts-list {
+	list-style-type: none;
+}
+
+.radio-button {
+	padding-right: 10px;
+}
+
+.red {
+	color: $red;
+}
