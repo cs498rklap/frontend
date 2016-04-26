@@ -27,7 +27,15 @@ app.config(['$routeProvider', function($routeProvider) {
             templateUrl: 'partials/post/edit.html',
             controller: 'PostIndividualController'
         }).
+        when('/posts', {
+            templateUrl: 'partials/post/list.html',
+            controller: 'PostsController'
+        }).
+        when('/addpost', {
+            templateUrl: 'partials/post/add.html',
+            controller: 'AddPostController'
+        }).
         otherwise({
-            redirectTo: '/'
+            redirectTo: '/posts'
         });
 }]);
