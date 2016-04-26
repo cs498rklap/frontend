@@ -2,15 +2,15 @@ var jobsServices = angular.module('jobs.services', []);
 
 jobsServices.factory('Jobs', function($http, $q) {
     return {
-        get : function (queryString) {
+        get: function (queryString) {
             return $http.get('http://localhost:4000/api/jobs?'+queryString);
         },
-        post : function(data) {
+        post: function(data) {
             return $http.post('http://localhost:4000/api/jobs', $.param(data), {
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             });
         },
-        states : function() {
+        states: function() {
             return [
                 {'abbreviation' : 'AL', 'name' : 'Alabama'},
                 {'abbreviation' : 'AK', 'name' : 'Alaska'},
@@ -68,6 +68,5 @@ jobsServices.factory('Jobs', function($http, $q) {
         cities : function (state) {
             return $http.get('http://crossorigin.me/http://api.sba.gov/geodata/city_links_for_state_of/'+state+'.json');
         }
-
-    }
+    };
 });

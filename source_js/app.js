@@ -45,7 +45,7 @@ app.config(['$routeProvider', function($routeProvider) {
             templateUrl: 'partials/job/list.html',
             controller: 'JobListController'
         }).
-        when('/jobs/add', {
+        when('/addjob', {
             templateUrl: 'partials/job/add.html',
             controller: 'JobAddController'
         }).

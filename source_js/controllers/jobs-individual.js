@@ -1,11 +1,14 @@
 var jobControllers = angular.module('job.controllers', []);
 
-jobControllers.controller('JobsIndividualController', ['$scope', '$http', 'Jobs', '$window', '$routeParams',  function($scope, $http, Jobs, $window, $routeParams) {
+jobControllers.controller('JobsIndividualController', ['$scope', '$http', 'Job', '$window', '$routeParams',  function($scope, $http, Job, $window, $routeParams) {
   $scope.job = {};
   $scope.timestamp = "";
 
-  Jobs.getJob($routeParams.id).success(function(data) {
+  Job.getJob($routeParams.id).success(function(data) {
     $scope.job = data.data;
-    $scope.timestamp = new Date($scope.job.deadline).toString();
+    if ($scope.job.deadline)
+        $scope.timestamp = new Date($scope.job.deadline).toString();
+    else
+        $scope.timestamp = "No Deadline";
   });
 }]);
