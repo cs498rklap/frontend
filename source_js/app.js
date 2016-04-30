@@ -16,6 +16,9 @@ var app = angular.module('lap', [
     'post.services',
     'post.controllers',
 
+    'dashboard.services',
+    'dashboard.controllers',
+
     '720kb.datepicker'
 ]);
 
@@ -48,6 +51,10 @@ app.config(['$routeProvider', function($routeProvider) {
         when('/addjob', {
             templateUrl: 'partials/job/add.html',
             controller: 'JobAddController'
+        }).
+        when('/dashboard', {
+            templateUrl: 'partials/user/dashboard.html',
+            controller: 'DashboardController'
         }).
         otherwise({
             redirectTo: '/posts'

@@ -20,14 +20,16 @@ module.exports = function(grunt) {
               'source_js/controllers/posts-overall.js',
               'source_js/controllers/jobs-individual.js',
               'source_js/controllers/jobs-overall.js',
-              'source_js/controllers/user.js'
+              'source_js/controllers/user.js',
+              'source_js/controllers/dashboard.js'
           ],
           'public/js/services.js': [
               'source_js/services/jobs-individual.js',
               'source_js/services/jobs-overall.js',
               'source_js/services/posts-individual.js',
               'source_js/services/posts-overall.js',
-              'source_js/services/user.js'
+              'source_js/services/user.js',
+              'source_js/services/dashboard.js'
           ],
         } //files
       } //my_target
