@@ -1,5 +1,5 @@
 var jobServices = angular.module('job.services', []);
-var baseUrl = "http://localhost:4000/api";
+var baseUrl = "http://localhost:3000/api";
 
 jobServices.factory('Job', function($http, $window) {
     return {

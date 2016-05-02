@@ -3,10 +3,10 @@ var jobsServices = angular.module('jobs.services', []);
 jobsServices.factory('Jobs', function($http, $q) {
     return {
         get: function (queryString) {
-            return $http.get('http://localhost:4000/api/jobs?'+queryString);
+            return $http.get('http://localhost:3000/api/jobs?'+queryString);
         },
         post: function(data) {
-            return $http.post('http://localhost:4000/api/jobs', $.param(data), {
+            return $http.post('http://localhost:3000/api/jobs', $.param(data), {
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             });
         },
